@@ -1,36 +1,25 @@
-/* Tell body and main that they are flex containers */
+/* Custom page styles you want to add */
 body {
-    display: flex;
-    flex-direction: column; /* header, main, footer stack vertically */
-    height: 100vh;          /* Take full screen height */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
+    padding: 0;
 }
 
-/* main contains article and aside side by side */
+/* Optional: Style main content */
 main {
-    display: flex;
-    flex-direction: row; /* article (left) + aside (right) */
-    flex: auto;          /* Allow main to grow and fill space */
-}
-
-/* Article should take 2/3 of the page width */
-article {
-    flex: 2;
     padding: 20px;
-    overflow-y: auto; /* Allow scrolling inside article */
-    box-sizing: border-box;
 }
 
-/* Aside should take 1/3 of the page width */
-aside {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto; /* Allow scrolling inside aside */
-    box-sizing: border-box;
-}
+/* Responsive fallback (helps layout on small screens) */
+@media (max-width: 600px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
 
-/* Optional — to visualize sections (can remove later) */
-header, footer {
-    padding: 10px;
+    article, aside {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
-
